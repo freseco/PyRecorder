@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO
 from picamera import PiCamera
-import uuid                        #para generar # aleatorios
+import uuid                        #random text
 import time
 import os
 
@@ -18,26 +18,26 @@ def screen_clear():
 camera = PiCamera()
 camera.resolution = (800,600)
 camera.framerate = 25
-grabando=False
+recording=False
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(3, GPIO.IN)
 
-def grabar():
-    global grabando
-    if grabando==False:#paramos la grabación        
+def record():
+    global recording
+    if recording==False:      
          #camera.start_preview()
-        grabando=True
+        recording=True
         camera.start_recording(str(uuid.uuid4())+'video.h264')
         
-    print("Grabando")
+    print("Recording!")
        
 
 def parargrabar():
-    global grabando
-    if grabando==True:
+    global recording
+    if recording==True:
         camera.stop_recording()
-        grabando=False
+        recording=False
         #camera.stop_preview()
 
 
@@ -55,5 +55,5 @@ while True:
     parargrabar()
   else:
     screen_clear()
-    grabar()    
+    record()    
     time.sleep(1)

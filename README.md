@@ -15,6 +15,7 @@ Future features:
  - Recording audio.
  - Upload the video to the cloud store service.
  - Running in background and at system start.
+ - Menu to choose the camera options.
  
  If you have any subjection, please email me. 
  
