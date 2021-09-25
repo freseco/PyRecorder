@@ -63,11 +63,6 @@ while loop:
         print("Wrong option selection. Enter any key to try again..")
 
 
-
-
-
-
-
 recording=False
 namevideofile=""
 numvideos=3
@@ -112,11 +107,6 @@ def parargrabar():
         th = threading.Thread(target=ConvertVideo)
         th.start()
         numvideos-=1
-        
-
-        
-
-
 
 def foto():
     camera.start_preview()
